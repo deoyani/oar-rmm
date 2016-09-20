@@ -10,12 +10,16 @@ This project is designed to develope a web service available publicly for users 
 4. tomcat
 5. database server access
  
-## how to deploy
+## How to deploy
 - git clone <oar-rmm> project
-- Edit config files for database server acccess (By default uses localhost)
+- Edit config (/main/Resources/app.properties)files for database server acccess (By default uses localhost)
 - mvn clean install
 - mvn tomcat:deploy
 
+Or 
+
+- Use docker 
+- *** info to be come
 ## Environment for development
 * Java 1.8 : Oralacle Java 8+
 * Maven : latest
@@ -25,3 +29,7 @@ This project is designed to develope a web service available publicly for users 
 * Other Database files ....
 
 
+## Service endpoints.
+
+Most of the information about the serach api can be found under following once application is up and running. 
+/RMMApi/swagger-ui.html
