@@ -16,17 +16,27 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 
 /**
+ * SubCategoryTier2  is part of taxanomy
  * @author dsn1
  *
  */
 public class SubCategoryTier2 {
 
 	@Id private String id;
-	private @TextIndexed String researchCategory;
+	@TextIndexed private  String researchCategory;
+	
+	/***
+	 * Get Sub ReserahcCategory
+	 * @return
+	 */
 	public String getresearchCategory(){
 		return researchCategory;
 	}
 	
+	/***
+	 * Set ResearchCategory
+	 * @param researchCategory
+	 */
 	public void setresearchCategory(String researchCategory){
 		this.researchCategory = researchCategory;
 	}

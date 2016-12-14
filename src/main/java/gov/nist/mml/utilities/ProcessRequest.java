@@ -26,31 +26,27 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.data.mongodb.core.query.TextQuery;
-
+/***
+ * Process Advanced search request. This class needs to be updated
+ * @author dsn1
+ *
+ */
 public class ProcessRequest {
 	
 	private Logger logger = LoggerFactory.getLogger(ProcessRequest.class);
-	private String[] fieldKeywords =  {"theme","searchphrase"};
+	
 	boolean theme =false; 
 	boolean searchphrase=false;
 	
 	public Query handleRequest(Map<String,String> params) throws IOException{
+		
+	logger.info("REquested Adavnced search for following parameters::"+params);	
 	Boolean logical =false; 
 	Criteria criteria = null;
 	ArrayList<Criteria> criterias = new ArrayList<Criteria>();
 	Query  mainQuery = null;
 	Query  textQuery =null; 
 
-	
-//	if(params.size() ==2 && params.containsKey(fieldKeywords[0]) && params.containsKey(fieldKeywords[1]))
-//	{
-//			if(params.get(fieldKeywords[0]).isEmpty() && params.get(fieldKeywords[1]).isEmpty())
-//				return null;
-//	}
-//	
-//	if(params.size() == 1 && params.containsKey(fieldKeywords[1])){
-//		textQuery  = parseSearchPhrase(params.get(fieldKeywords[1]));
-//	}
 	if(!params.entrySet().isEmpty()){
 		
 		for (Entry<String, String> entry : params.entrySet()) {
@@ -109,7 +105,7 @@ public class ProcessRequest {
 	}
 	
 	/**
-	 * 
+	 * Parse Searchphrase request
 	 */
 	private Query parseSearchPhrase(String phrase){
 
@@ -118,6 +114,12 @@ public class ProcessRequest {
 		
 	}
 	
+	/**
+	 * Add criteria for given requested param
+	 * @param key fieldname
+	 * @param value value to search
+	 * @return
+	 */
 	private Criteria addCriteria(String key, String value){
 		return Criteria.where(key).regex(Pattern.compile(value, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE));
 		

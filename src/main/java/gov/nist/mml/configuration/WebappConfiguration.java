@@ -26,9 +26,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @ComponentScan(basePackages = "gov.nist.mml")
 @Import(RepositoryRestMvcConfiguration.class)
+/**
+ * WebConfiguration class takes care of WebApplication configuration settings.
+ * 
+ * @author dsn1
+ *
+ */
 public class WebappConfiguration extends WebMvcConfigurerAdapter{
 	
 	@Override
+	/**
+	 * AddResourceHandler add resources to ResourceHandlerRegistry
+	 */
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		
 	    registry.addResourceHandler("swagger-ui.html")
@@ -44,6 +53,9 @@ public class WebappConfiguration extends WebMvcConfigurerAdapter{
 	
 	
 	@Override
+	/**
+	 * Set CORS mappings for the project.
+	 */
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**");
 	}

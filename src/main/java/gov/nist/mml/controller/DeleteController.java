@@ -24,6 +24,11 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @Api(value = "Test api to Delete data from database", tags = "Delete API")
+/**
+ * DeleteController takes commands to delete records
+ * @author dsn1
+ *
+ */
 public class DeleteController {
 	
 	private Logger logger = LoggerFactory.getLogger(SearchController.class);
@@ -41,6 +46,11 @@ public class DeleteController {
 	
 	@ApiOperation(value = "Delete an entry from POD list",nickname = "deleteOne")
 	@RequestMapping(value = "/catalog/records/{id}", method = RequestMethod.DELETE, produces = "application/json")
+	/***
+	 * Delete single record
+	 * @param id record identifier
+	 * @return String record
+	 */
 	public String deleteRecord(@PathVariable String id) {
 		logger.info("Delete record"+id);
 	     /**
@@ -53,6 +63,10 @@ public class DeleteController {
 	
 	@ApiOperation(value = "Delete all entries from POD list",nickname = "deleteAll")
 	@RequestMapping(value = "/catalog/records/deleteall", method = RequestMethod.DELETE, produces = "application/json")
+	/***
+	 * Delete all records
+	 * @return String record
+	 */
 	public String deleteAll() {
 	      logger.info("Delete All");
 	      

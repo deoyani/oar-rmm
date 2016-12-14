@@ -23,9 +23,12 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import gov.nist.mml.domain.Taxanomy;
 
-
-
 @RepositoryRestResource
+/***
+ * TaxanomyRespository interface for taxanomy data
+ * @author dsn1
+ *
+ */
 public interface TaxanomyRepository extends MongoRepository<Taxanomy, String> {
 	
 	///These are HATEOS format serach api

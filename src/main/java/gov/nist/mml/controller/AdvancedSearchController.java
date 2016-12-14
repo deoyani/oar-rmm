@@ -39,6 +39,13 @@ import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;;
 @RestController
 @Api(value = "Api for advanced search options", tags = "AdvancedSearch")
+/**
+ * AdvancedSearchController class, takes care of advanced search quesries.
+ * This class can be merged with main Search class but it  creates problem with Swagger-UI
+ * once swagger code update is released we can move this to SearchController.
+ * @author dsn1
+ *
+ */
 public class AdvancedSearchController {
 	
 	private Logger logger = LoggerFactory.getLogger(SearchController.class);
@@ -50,12 +57,7 @@ public class AdvancedSearchController {
 	@Autowired
 	private HttpServletRequest request;
 	
-	//*** This is the main /search method which accepts various kinds of request parameters including 
-    // advanced search with logical operations on the columns/fields
-    // This search api can take any key=value pair.
-    // for logical operations "logicalOp" will accept and/or op
-    // for searching any text use "searchPhrase" 
-    /// This was added for SwaggerUI to show the options for pageable
+	
     @ApiOperation(value = "Give combination of keywords  or key value pair to search with pagination and sorting.",
     		      nickname = "advancedsearch", notes="/advancedsearch api endpoint accepts any number of key=value pairs seperated by '&' operator."
     		      		+ " <br> <br> keys should represent field names in data.json"
@@ -75,6 +77,16 @@ public class AdvancedSearchController {
                         "Multiple sort criteria are supported.")       
         
     })
+    /**
+     * This is the main /search method which accepts various kinds of request parameters including
+     * advanced search with logical operations on the columns/fields
+     * This search api can take any key=value pair.
+     * for logical operations "logicalOp" will accept and/or op for searching any text use "searchPhrase" 
+     * This was added for SwaggerUI to show the options for pageable
+     * @param p Pagination parameters
+     * @return List of records
+     * @throws IOException
+     */
     @RequestMapping(value = {"/records/advancedsearch"}, method = RequestMethod.GET, produces="application/json")
 	public List<Record> search (@ApiIgnore @PageableDefault(size=1000)  Pageable p)//,@RequestParam @ApiIgnore  Map<String,String> params )
 		   throws IOException {

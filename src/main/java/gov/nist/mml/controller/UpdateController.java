@@ -28,6 +28,11 @@ import io.swagger.annotations.ApiOperation;
 
 @Controller
 @Api(value = "Test api for updating existing data entries", tags = "update API")
+/***
+ * Update records in database
+ * @author dsn1
+ *
+ */
 public class UpdateController {
 	private Logger logger = LoggerFactory.getLogger(SearchController.class);
 
@@ -42,6 +47,12 @@ public class UpdateController {
 	@SuppressWarnings("finally")
 	@ApiOperation(value = "Delete an entry from POD list",nickname = "deleteOne")
 	@RequestMapping(value = "/catalog/records/{id}", method = RequestMethod.PUT, produces = "application/json")
+	/***
+	 * Update single record
+	 * @param id record identifier string
+	 * @param updateRecord JSOn object record
+	 * @return String Record updated
+	 */
 	public String updateRecord(@PathVariable String id,@RequestBody Record updateRecord) {
 		logger.info("Update Record.");
 		try{

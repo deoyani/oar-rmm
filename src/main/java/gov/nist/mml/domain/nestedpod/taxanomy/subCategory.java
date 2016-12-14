@@ -16,17 +16,26 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 
 /**
+ * SubCategory Class domain is part of Taxanomy categories
  * @author dsn1
- *
+ * this is temp class, we need to define taxanomy properly once it is ready
  */
 public class SubCategory {
 	
 	@Id private String id;
 	@TextIndexed private String subResearchCategory;
+	/***
+	 * Get SubresearchCategory
+	 * @return String 
+	 */
 	public String getsubResearchCategory(){
 		return subResearchCategory;
 	}
 	
+	/***
+	 * Set SubResearchCategory
+	 * @param subResearchCategory
+	 */
 	public void setsubResearchCategory(String subResearchCategory){
 		this.subResearchCategory = subResearchCategory;
 	}

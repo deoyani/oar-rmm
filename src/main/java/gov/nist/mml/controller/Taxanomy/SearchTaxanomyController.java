@@ -48,6 +48,11 @@ public class SearchTaxanomyController {
     }
 	
 	@RequestMapping(value = {"/taxanomy"}, method = RequestMethod.GET, produces="application/json")
+	/***
+	 * Get All taxanomy records
+	 * @param p
+	 * @return Page taxanomy
+	 */
 	public Page<Taxanomy> searchAll (Pageable p) {
     
 		logger.info("Requested searchAll:");
@@ -56,6 +61,12 @@ public class SearchTaxanomyController {
     }
 	
 	@RequestMapping(value = {"/taxanomy/search"}, method = RequestMethod.GET, produces="application/json")
+	/***
+	 * Search by a phrase
+	 * @param searchPhrase
+	 * @param p
+	 * @return List Taxanomy
+	 */
 	public List<Taxanomy> searchByText (@RequestParam String searchPhrase,Pageable p ) {
 	    
 			logger.info("Requested searchPhrase:"+searchPhrase);

@@ -30,6 +30,12 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @Api(value = "Test api for inserting data in the POD", tags = "Save API")
+/**
+ * InsertController class add records in the database.
+ *
+ * @author dsn1
+ *
+ */
 public class InsertController {
 	
 	private Logger logger = LoggerFactory.getLogger(SearchController.class);
@@ -47,6 +53,11 @@ public class InsertController {
 	
 	@ApiOperation(value = "Insert new entery in the database.",nickname = "save one")
 	@RequestMapping(value = "/catalog/records/save", method = RequestMethod.POST, produces = "application/json")
+	/**
+	 * Save one record
+	 * @param record
+	 * @return Record
+	 */
 	public Record savePod(@RequestBody Record record) {
 	      //do something fancy
 		 logger.info("adding new entry in Records"+record.toString());
@@ -54,6 +65,11 @@ public class InsertController {
 	}
 	
 	@RequestMapping(value = "/ResourceApi/save", method = RequestMethod.POST, produces = "application/json")
+	/**
+	 * Save entry in ResourceApi
+	 * @param keydata
+	 * @return ResourceApi
+	 */
 	public ResourceApi saveApi(@RequestBody ResourceApi keydata) {
 	      //do something fancy
 		  logger.info("adding new entry in ResourceApi"+keydata.toString());

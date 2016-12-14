@@ -31,6 +31,11 @@ import gov.nist.mml.domain.nestedpod.Publisher;
 
 
 @RepositoryRestResource
+/***
+ * RecordRepository Interface for the PDL records
+ * @author dsn1
+ *
+ */
 public interface RecordRepository extends MongoRepository<Record, String> {
 	
 	///These are HATEOS format serach api

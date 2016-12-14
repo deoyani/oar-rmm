@@ -41,6 +41,11 @@ public class InsertTaxanomyController {
 	
 	@ApiOperation(value = "Insert new entery in the database.",nickname = "save one")
 	@RequestMapping(value = "/taxanomy/save", method = RequestMethod.POST, produces = "application/json")
+	/***
+	 * Save taxanomy data in Database
+	 * @param taxanomy
+	 * @return Taxanomy object
+	 */
 	public Taxanomy savePod(@RequestBody Taxanomy taxanomy) {
 		
 		  logger.info("Taxanomy repository save data"+taxanomy);	

@@ -30,6 +30,12 @@ import gov.nist.mml.exception.KeyWordNotFoundException;
 import gov.nist.mml.exception.ResourceNotFoundException;
 
 @ControllerAdvice
+/***
+ * GlobalExceptionHandler class takes care of any exceptions thrown in the code and 
+ * returns appropriate messages
+ * @author dsn1
+ *
+ */
 public class GlobalExceptionHandler {
 	
 	private Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
@@ -39,6 +45,11 @@ public class GlobalExceptionHandler {
 	  @ResponseStatus(HttpStatus.CONFLICT)
 	  @ExceptionHandler(Exception.class)
 	  @ResponseBody
+	  /**
+	   * Handles General Exception
+	   * @param exception
+	   * @return ErrorInfo object with error details
+	   */
 	  public ErrorInfo  myError(Exception exception) {
 	    logger.info("----Caught IOException----");
 	    return new ErrorInfo(request.getDescription(false), exception,"General Exception",HttpStatus.CONFLICT.toString());
@@ -48,6 +59,11 @@ public class GlobalExceptionHandler {
 	  @ResponseStatus(HttpStatus.BAD_REQUEST)
 	  @ExceptionHandler(IllegalArgumentException.class)
 	  @ResponseBody
+	  /**
+	   * Handles IllegalArgumentException
+	   * @param IllegalArgumentException
+	   * @return ErrorInfo object with error details
+	   */
 	  public ErrorInfo illegal(IllegalArgumentException exception) {
             logger.info("----This is a ilegal request----");
             return new ErrorInfo(request.getDescription(false), exception,"IllegalArgumentException",HttpStatus.BAD_REQUEST.toString());
@@ -57,6 +73,11 @@ public class GlobalExceptionHandler {
 	  @ResponseStatus(HttpStatus.NOT_FOUND)
 	  @ExceptionHandler(KeyWordNotFoundException.class)
 	  @ResponseBody
+	  /***
+	   * Handles KeywordNotFoundException
+	   * @param exception
+	   * @return ErrorInfo object with error details
+	   */
 	  public ErrorInfo notFound(Exception exception) {
             logger.info("----Caught KeywordNotFoundException----");
             return new ErrorInfo(request.getDescription(false), exception,"KeyWordNotFoundException",HttpStatus.NOT_FOUND.toString());
@@ -67,6 +88,11 @@ public class GlobalExceptionHandler {
 	  @ResponseStatus(HttpStatus.NOT_FOUND)
 	  @ExceptionHandler(ResourceNotFoundException.class)
 	  @ResponseBody
+	  /***
+	   * Handles ResourceNotFoundException
+	   * @param ResourceNotFoundException
+	   * @return ErrorInfo object with error details
+	   */
 	  public ErrorInfo resourceNotFound(ResourceNotFoundException exception) {
             logger.info("----Caught KeywordNotFoundException----");
             return new ErrorInfo(request.getDescription(false), exception,"ResourceNotFoundException",HttpStatus.NOT_FOUND.toString());
@@ -76,6 +102,11 @@ public class GlobalExceptionHandler {
 	  @ResponseStatus(HttpStatus.BAD_REQUEST)
 	  @ExceptionHandler(IOException.class)
 	  @ResponseBody
+	  /***
+	   * Handles BadRequest
+	   * @param Exception
+	   * @return ErrorInfo object with error details
+	   */
 	  public ErrorInfo badRequest(Exception exception) {
             logger.info("----Caught IOException----");
             return new ErrorInfo(request.getDescription(false), exception,"IOException",HttpStatus.BAD_REQUEST.toString());

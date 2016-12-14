@@ -18,7 +18,11 @@ import org.springframework.data.mongodb.core.index.TextIndexed;
 
 import gov.nist.mml.domain.nestedpod.taxanomy.SubCategory;
 
-
+/***
+ * Taxamony domain class to represent data in Mongo
+ * @author dsn1
+ *
+ */
 public class Taxanomy {
 
 	@Id private String id;
@@ -26,26 +30,48 @@ public class Taxanomy {
 	@TextIndexed private String researchCategory;
 	@TextIndexed private SubCategory[] subCategories;
 
-	
+	/***
+	 * GEt Research category
+	 * @return String
+	 */
 	public String getresearchCategory() {
 		return researchCategory;
 	}
+	
+	/***
+	 * Set Research Category
+	 * @param researchCategory String
+	 */
 	public void setresearchCategory(String researchCategory) {
 		this.researchCategory = researchCategory;
 	}
 	
-	
+	/***
+	 * Get SubCategories
+	 * @return SubCategory[]
+	 */
 	public SubCategory[] getsubCategories() {
 		return this.subCategories;
 	}
+	/***
+	 * Set SubCategories
+	 * @param subcategories SubCategory[]
+	 */
 	public void setSubCategories(SubCategory[] subcategories) {
 		this.subCategories = subcategories;
 	}
 	
-	
+	/***
+	 * Get KeyIdentifier
+	 * @return String keyIdentifier
+	 */
 	public String getkeyIdentifier() {
 		return keyIdentifier;
 	}
+	/***
+	 * Set KeyIdentifier
+	 * @param keyIdentifier String
+	 */
 	public void setkeyIdentifier(String keyIdentifier) {
 		this.keyIdentifier = keyIdentifier;
 	}

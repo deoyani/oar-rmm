@@ -16,6 +16,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.TextIndexed;
 
 /**
+ * ResourceApi is a domain class for ResourceApi data in momngodb.
  * @author dsn1
  *
  */
@@ -27,34 +28,64 @@ public class ResourceApi {
 	@TextIndexed private String documentUrl;
 	@TextIndexed private String apiUrl;
 	
-	
+	/***
+	 * Get Name of the resource
+	 * @return String Name
+	 */
 	public String getName() {
 		return name;
 	}
-
+	/***
+	 * Set Name if the resource
+	 * @param name String
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	/***
+	 * GEt InfoURL
+	 * @return String infoUrl
+	 */
 	public String getInfoUrl() {
 		return infoUrl;
 	}
+	/***
+	 * SetInfoUrl 
+	 * @param infoUrl String
+	 */
 	public void setInfoUrl(String infoUrl) {
 		this.infoUrl = infoUrl;
 	}
+	
+	/***
+	 * Get DocumentUrl
+	 * @return String
+	 */
 	public String getDocumentUrl() {
 		return documentUrl;
 	}
-
+	/***
+	 * Set DocumentUrl 
+	 * @param documentUrl String
+	 */
 	public void setDocumentUrl(String documentUrl ) {
 		this.documentUrl = documentUrl;
 	}
+	
+	/***
+	 * Get Api Url
+	 * @return String
+	 */
 	public String getApiUrl() {
 		return apiUrl;
 	}
-
+	/***
+	 * Set Api Url
+	 * @param apiUrl String
+	 */
 	public void setApiUrl(String apiUrl ) {
 		this.apiUrl = apiUrl;
 	}
-	
 	
 }

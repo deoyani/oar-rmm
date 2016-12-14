@@ -10,7 +10,7 @@
  * that they have been modified.
  * @author: Deoyani Nandrekar-Heinis
  */
-package gov.nist.mml.controller.resourceApi;
+package gov.nist.mml.controller.resourceapi;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,6 +28,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
+ * ResourceApiController class gives access to list of resources.
  * @author dsn1
  *
  */
@@ -43,6 +44,11 @@ public class ResourceApiController {
 	@ApiOperation(value = "Get NIST open data api list.",nickname = "ResourceApi",
 			  notes = "Returns the list of NIST API available publicly.")
 	@RequestMapping(value = {"/ResourceApi"}, method = RequestMethod.GET, produces="application/json")
+	/***
+	 * Get the list of resource apis
+	 * @return List Json
+	 * @throws IOException
+	 */
 	public List<ResourceApi> search ( )throws IOException {
 		logger.info("gets available resource apis");
 		return resourceapiRepository.findAll();

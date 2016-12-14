@@ -15,7 +15,11 @@ package gov.nist.mml.domain.nestedpod;
 import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+/***
+ * ContactPoint Domain Class for Mongo
+ * @author dsn1
+ *
+ */
 public class ContactPoint{
 	@Id private String id;
 	@JsonProperty("@type")
@@ -23,25 +27,48 @@ public class ContactPoint{
 	private String hasmail;
 	private String fn;
 	
+	/***
+	 * Get Type
+	 * @return String Type
+	 */
 	public String getType(){
 		return type;
 	}
-	
+	/***
+	 * Set Type
+	 * @param type String
+	 */
 	public void setType(String type){
 		this.type = type;
 	}
 	
+	/***
+	 * Get Hasmail
+	 * @return String hasmail
+	 */
 	public String getHasmail(){
 		return hasmail;
 	}
-	
+	/***
+	 * Set hasmail
+	 * @param hasmail
+	 */
 	public void sethasmail(String hasmail){
 		this.hasmail = hasmail;
 	}
+	
+	/***
+	 * Get Fn
+	 * @return String Fn
+	 */
 	public String getFn(){
 		return fn;
 	}
 	
+	/***
+	 * Set Fn
+	 * @param fn String
+	 */
 	public void setFn(String fn){
 		this.fn = fn;
 	}

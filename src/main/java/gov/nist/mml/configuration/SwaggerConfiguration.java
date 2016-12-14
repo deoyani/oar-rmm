@@ -34,7 +34,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @ComponentScan({"gov.nist.mml"})
-
+/**
+ * Swagger configuration class takes care of Inititalizing swagger
+ *  to be used to generate documentation for the code.
+ * @author dsn1
+ *
+ */
 public class SwaggerConfiguration {
 	
 	private static List<ResponseMessage> responseMessageList = new ArrayList<>();
@@ -47,6 +52,10 @@ public class SwaggerConfiguration {
 				.message("403 - Forbidden").build());
 	}
   @Bean
+  /**
+   * Swagger api setting
+   * @return Docket
+   */
   public Docket api() {
 	
 	 return new Docket(DocumentationType.SWAGGER_2).select()
@@ -55,6 +64,11 @@ public class SwaggerConfiguration {
 			 .build().apiInfo(apiInfo());
   }
 
+  /**
+   * Swagger Api Info
+   * @return return ApiInfo
+   * 
+   */
   private ApiInfo apiInfo() {
 
     @SuppressWarnings("deprecation")

@@ -34,6 +34,11 @@ import com.mongodb.ServerAddress;
 @PropertySource(value = "classpath:restapi.properties")
 @EnableWebMvc
 @ComponentScan(basePackages = "gov.nist.mml")
+/**
+ * Class sets MongoDB Configuration
+ * @author dsn1
+ *
+ */
 public class MongoDBConfiguration extends AbstractMongoConfiguration {
 
 	@Autowired
@@ -43,19 +48,32 @@ public class MongoDBConfiguration extends AbstractMongoConfiguration {
 
 	@Override 
 	@Bean(name="metadataTemplate")
+	/**
+	 * Connect to Mongodb getting server and db configuration
+	 */
 	public Mongo mongo() throws Exception {
 		
 		logger.info("MongoDBConfiguration:"+env.getProperty("mongodb.host")+" :"+env.getProperty("mongodb.port"));
 		return new MongoClient(new ServerAddress(env.getProperty("mongodb.host"),
 				Integer.valueOf(env.getProperty("mongodb.port"))));
+//		return new MongoClient(new ServerAddress(env.getProperty("MONGODB_1_PORT_3333_TCP_ADDR"),
+//				Integer.valueOf(env.getProperty("MONGODB_1_PORT_3333_TCP_PORT"))));
 	}	
 	
 	@Override
+	/**
+	 * Get Database name
+	 * @return string db name
+	 */
 	protected String getDatabaseName() {
 		return env.getProperty("mongodb.name");
 	}
 
 	@Override
+	/**
+	 * Get package Name
+	 * @return string package name
+ 	 */
 	public String getMappingBasePackage() {
 		return "gov.nist.mml";
 	}

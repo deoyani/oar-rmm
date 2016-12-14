@@ -26,21 +26,41 @@ public class KeyWordNotFoundException extends Exception {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String requestUrl = "";
+	/***
+	 * KeyWordNotFoundException for given id
+	 * @param id requested identifier
+	 */
 	public KeyWordNotFoundException(int id){
 		super("EmployeeNotFoundException with id="+id);
 	}
+	/**
+	 * KeyWordNotFoundException
+	 */
 	public KeyWordNotFoundException(){
 		super("Keywords you  are looking for are not available.");
 	}
+	/***
+	 * KeyWordNotFoundException for requested URL
+	 * @param requestUrl
+	 */
 	public KeyWordNotFoundException(String requestUrl){
 		
 		super("Keywords not available for given Request."+requestUrl );
 		this.setRequestUrl(requestUrl);
 	}
 	
+	/***
+	 * Get RequestedURL
+	 * @return String
+	 */
 	public String getRequestUrl(){
 		return this.requestUrl;
 	}
+	
+	/***
+	 * Set RequestedURL
+	 * @param url String
+	 */
 	public void setRequestUrl(String url){
 		this.requestUrl = url;
 	}

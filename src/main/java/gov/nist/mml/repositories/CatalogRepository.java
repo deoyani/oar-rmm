@@ -28,6 +28,11 @@ import gov.nist.mml.domain.Record;
  *
  */
 @RepositoryRestResource
+/***
+ * CAtalogRepository Interface to get Catalog data
+ * @author dsn1
+ *
+ */
 public interface CatalogRepository extends MongoRepository<Catalog, String>  {
 	//Get Pages using criteria
 		Page<Catalog> findAll(Pageable pageable);

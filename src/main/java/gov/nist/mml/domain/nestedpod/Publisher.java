@@ -17,24 +17,44 @@ import org.springframework.data.mongodb.core.index.TextIndexed;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/***
+ * Publisher Domain class represents data in mongo
+ * @author dsn1
+ *
+ */
 public class Publisher{
 	@Id private String id;
 	@JsonProperty("@type")
 	@TextIndexed private String type;
 	@TextIndexed private String name;
 	
+	/***
+	 * GEt Type
+	 * @return String 
+	 */
 	public String getType(){
 		return type;
 	}
-	
+	/**
+	 * Set Type
+	 * @param type String
+	 */
 	public void setType(String type){
 		this.type = type;
 	}
 	
+	/***
+	 * Get NAme
+	 * @return String name
+	 */
 	public String getName(){
 		return name;
 	}
 	
+	/***
+	 * Set Name
+	 * @param name String
+	 */
 	public void setName(String name){
 		this.name = name;
 	}

@@ -26,6 +26,11 @@ import org.springframework.data.domain.Pageable;
 
 
 @RepositoryRestResource
+/**
+ * ResourceApiRepository for resource apis
+ * @author dsn1
+ *
+ */
 public interface ResourceApiRepository extends MongoRepository<ResourceApi, String> {
 		
 	//Generic Search

@@ -11,15 +11,23 @@
  * @author: Deoyani Nandrekar-Heinis
  */
 package gov.nist.mml.exception;
-
+/***
+ * GeneralException extends Exception
+ * @author dsn1
+ *
+ */
 public class GeneralException extends Exception {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
-	public GeneralException(){
-		
+	
+	public GeneralException(int id){
+		super("Exception Thrown for this record="+id);
 	}
+	public GeneralException(String requestUrl){
+		super("Exception Thrown for this request="+requestUrl);
+	}
+	public GeneralException(){
+		super("Resource you are looking for is not available.");
+	}
+	
 }
