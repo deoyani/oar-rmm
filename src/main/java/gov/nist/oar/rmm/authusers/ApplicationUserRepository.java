@@ -10,29 +10,10 @@
  * that they have been modified.
  * @author: Deoyani Nandrekar-Heinis
  */
-package gov.nist.oar.rmm.repositories;
+package gov.nist.oar.rmm.authusers;
 
-import java.util.Map;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import org.bson.Document;
-
-import gov.nist.oar.rmm.utilities.entities.EditableRecords;
-import gov.nist.oar.rmm.utilities.entities.UpdateRecord;
-
-/**
- * This interface declares methods which can be used to access record data and perform the operations defined.
- * @author Deoyani Nandrekar-Heinis
- *
- */
-public interface UpdateRepository {
-    
-    public boolean updateRecord(UpdateRecord record, String recordid);
-
-    public String getRecordStatus(String recordid);
-
-    public Document getNERDmRecord(String recordid);
-    
-    //public EditableRecords[] getEditableRecords(String userid);
-
-    public void processRequest(Map<String, String> params);
+public interface ApplicationUserRepository extends JpaRepository<ApplicationUser, Long> {
+    ApplicationUser findByUsername(String username);
 }

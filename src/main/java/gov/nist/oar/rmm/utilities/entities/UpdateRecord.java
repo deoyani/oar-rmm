@@ -12,6 +12,9 @@
  */
 package gov.nist.oar.rmm.utilities.entities;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -19,13 +22,17 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class UpdateRecord {
 
-    public String title;
-    public String[] description;
-    public String[] keywords;
-    public String[] researchTopics;
-    public String[] authors;
+    @NotEmpty @NotNull
+    private String title;
+    
+    @NotEmpty @NotNull
+    private String[] description;
+    
+    private String[] keywords;
+    private String[] researchTopics;
+    private String[] authors;
 
-    public void UpdateRecord(String title, String[] description, String[] keywords,
+    public UpdateRecord(String title, String[] description, String[] keywords,
 	    String[] researchTopics, String[] authors) {
 	this.title = title;
 	this.description = description;

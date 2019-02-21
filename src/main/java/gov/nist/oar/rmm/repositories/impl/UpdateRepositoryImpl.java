@@ -14,6 +14,7 @@ package gov.nist.oar.rmm.repositories.impl;
 
 import java.util.Map;
 
+import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,47 +51,50 @@ public class UpdateRepositoryImpl implements UpdateRepository {
      
     }
 
-    /*
-     * Update the record of given id with the updatedRecord
-     */
- 
-    public boolean updateRecord(String recordid, Map<String, UpdateRecord> mpObj) {
-
-	
-//	MongoOperations mongoOperation = (MongoOperations) mconfig.getMongoDb();
-//	Query select = Query.query(Criteria.where("recordid").is(recordid));
-//	Update update = new Update();
-//	update.set(mObj.getKey(), "");
-//	update.set("", "");
-//	mongoOperation.findAndModify(select, update, UpdateRecord.class);
-
-	return false;
-    }
-
-    /*
-     * 
-     */
-    @Override
-    public String recordStatus(String recordid) {
-
-	return null;
-    }
-
     /* 
-     *
-     **/
-    @Override
-    public EditableRecords[] getEditableRecords(String userid) {
-	return null;
-    }
-
-    /* (non-Javadoc)
-     * @see gov.nist.oar.rmm.repositories.UpdateRepository#updateRecord(java.lang.String)
+     * This method takes care of Updating records   
      */
     @Override
-    public boolean updateRecord(String recordid) {
+    public boolean updateRecord(UpdateRecord record, String recordid) {
 	// TODO Auto-generated method stub
 	return false;
     }
 
+    /* 
+     * To connect to backend service or services to check the record status
+     */
+    @Override
+    public String getRecordStatus(String recordid) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    /* 
+     * On successful request get the NERDm document to display editable
+     */
+    @Override
+    public Document getNERDmRecord(String recordid) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+//    /*
+//     * Update the record of given id with the updatedRecord
+//     */
+// 
+//    public boolean updateRecord(String recordid, Map<String, UpdateRecord> mpObj) {
+//
+//	
+////	MongoOperations mongoOperation = (MongoOperations) mconfig.getMongoDb();
+////	Query select = Query.query(Criteria.where("recordid").is(recordid));
+////	Update update = new Update();
+////	update.set(mObj.getKey(), "");
+////	update.set("", "");
+////	mongoOperation.findAndModify(select, update, UpdateRecord.class);
+//
+//	return false;
+//    }
+
+
+   
 }

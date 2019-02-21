@@ -31,7 +31,7 @@ import gov.nist.oar.rmm.repositories.UpdateRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
-
+import org.springframework.security.access.prepost.PreAuthorize;
 /**
  * This controller handles request to get the data from the record metadata database
  * Also allows the changes made by client app to post the changes using api endpoint.
@@ -43,7 +43,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @Api(value = "Api endpoints to Edit EDI/PDL data", tags = "Edit API")
 
 @Validated
-@RequestMapping("/edit")
+@RequestMapping("/custom")
 public class UpdateController {
 
     private Logger logger = LoggerFactory.getLogger(UpdateController.class);
@@ -54,22 +54,20 @@ public class UpdateController {
     private UpdateRepository uRepo;
 
     @RequestMapping(value = {
-	    "/{ediid}" }, method = RequestMethod.PATCH, produces = "boolean", consumes = "application/json")
-    @ApiOperation(value = ".", nickname = "UpdateRecord", notes = "Resource returns a boolean based on success or failure of the request.")
+	    "edit/{ediid}" }, method = RequestMethod.GET, produces = "application/json", consumes = "string")
+    @ApiOperation(value = ".", nickname = "Access editable Record", notes = "Resource returns a record if it is editable and user is authenticated.")
     public void editRecord(@PathVariable @Valid String ediid,
 	    @ApiIgnore @Valid @RequestParam Map<String, String> params) {
 	uRepo.processRequest(params);
-	uRepo.updateRecord(ediid);
+
 
     }
 
     @RequestMapping(value = {
-	    "/{ediid}" }, method = RequestMethod.PATCH, produces = "boolean", consumes = "application/json")
+	    "save/{ediid}" }, method = RequestMethod.POST, produces = "boolean", consumes = "application/json")
     @ApiOperation(value = ".", nickname = "UpdateRecord", notes = "Resource returns a boolean based on success or failure of the request.")
-    public void updateRecord(@PathVariable @Valid String ediid,
-	    @ApiIgnore @Valid @RequestParam Map<String, String> params) {
+    public void updateRecord(@PathVariable @Valid String ediid, @ApiIgnore @Valid @RequestParam Map<String, String> params) {
 	uRepo.processRequest(params);
-	uRepo.updateRecord(ediid);
-
+	
     }
 }

@@ -10,29 +10,38 @@
  * that they have been modified.
  * @author: Deoyani Nandrekar-Heinis
  */
-package gov.nist.oar.rmm.repositories;
+package gov.nist.oar.rmm.authusers;
 
-import java.util.Map;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-import org.bson.Document;
+@Entity
+public class ApplicationUser {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String username;
+    private String password;
 
-import gov.nist.oar.rmm.utilities.entities.EditableRecords;
-import gov.nist.oar.rmm.utilities.entities.UpdateRecord;
+    public long getId() {
+        return id;
+    }
 
-/**
- * This interface declares methods which can be used to access record data and perform the operations defined.
- * @author Deoyani Nandrekar-Heinis
- *
- */
-public interface UpdateRepository {
-    
-    public boolean updateRecord(UpdateRecord record, String recordid);
+    public String getUsername() {
+        return username;
+    }
 
-    public String getRecordStatus(String recordid);
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public Document getNERDmRecord(String recordid);
-    
-    //public EditableRecords[] getEditableRecords(String userid);
+    public String getPassword() {
+        return password;
+    }
 
-    public void processRequest(Map<String, String> params);
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
