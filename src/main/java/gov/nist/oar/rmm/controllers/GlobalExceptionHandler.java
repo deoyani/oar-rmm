@@ -169,8 +169,5 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler  {
             logger.info("----Caught Runtime Exception----\n"+request.getDescription(false)+"\n Detail BadRequestException:"+exception.getStackTrace());
             return new ErrorInfo(request.getContextPath(), "InternalServer Error",HttpStatus.INTERNAL_SERVER_ERROR.toString());
 	  }
-	  
-	  
-	  
-	  
+
 } 
